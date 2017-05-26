@@ -41,3 +41,15 @@ document.getElementById('send-message').addEventListener('submit', function(ev) 
   });
   ev.preventDefault();
 });
+
+client.configure(feathers.authentication({
+  storage: window.localStorage
+}));
+
+client.authenticate({
+  strategy: 'local',
+  email: 'feathers@example.com',
+  password: 'secret'
+}).then(token => {
+  console.log('User is logged in');
+});

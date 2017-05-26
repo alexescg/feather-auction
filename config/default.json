@@ -6,5 +6,57 @@
     "default": 10,
     "max": 50
   },
-  "mongodb": "mongodb://root:toor@ds143211.mlab.com:43211/gruplan"
+  "mongodb": "mongodb://root:toor@ds143211.mlab.com:43211/gruplan",
+  "authentication": {
+    "secret": "9e2eb3ee341810ddb7e943c61b0bb4c00478866a319c6b5e75b531c6f2e4b7e1c6ad82c51b5323d8afe430c4c4e3190064ee29466d3bbd8d0adf0f627c3f166c3bb86c3b6bf8c36293d2e67a4a8bb7c1af762ad79f4069121be116a938bd1d861bf1e2b4f3f98967f6adf39549588e7effe9188477010873a81978aaf6abfa5bb116ca34085ca5bebea62c3a148e85ed9d4ac56e349ccac01407332083fc495b6d16d3730045363c2d1c8b038a2b3ee366862b5eca8a1f2e98fd50a249dc1052f7b3c126e0dab48e34a65063e53ac5850a3fb77b25991cfa9a70550706c209b04e52901fce2e920b83f0fbd8e0539e2bc3892d74b2cea075d24e9c43c4c62bd1",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "type": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "service": "users",
+      "usernameField": "email",
+      "passwordField": "password"
+    },
+    "facebook": {
+      "clientID": "your facebook client id",
+      "clientSecret": "your facebook client secret",
+      "successRedirect": "/",
+      "scope": [
+        "public_profile",
+        "email"
+      ],
+      "profileFields": [
+        "id",
+        "displayName",
+        "first_name",
+        "last_name",
+        "email",
+        "gender",
+        "profileUrl",
+        "birthday",
+        "picture",
+        "permissions"
+      ]
+    },
+    "cookie": {
+      "enabled": true,
+      "name": "feathers-jwt",
+      "httpOnly": false,
+      "secure": false
+    }
+  }
 }
