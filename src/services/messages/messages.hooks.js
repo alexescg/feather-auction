@@ -26,7 +26,7 @@ module.exports = {
           include: [{
             service: 'users',
             nameAs: 'user',
-            parentField: 'userId',
+            parentField: 'user',
             childField: '_id'
           }]
         }
