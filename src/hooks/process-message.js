@@ -11,15 +11,15 @@ module.exports = function() {
       .substring(0, 400)
       // Do some basic HTML escaping
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-
     // Override the original data
     hook.data = {
       text,
       // Set the user id
-      userId: user._id,
+      user: user._id,
       // Add the current time via `getTime`
       createdAt: new Date().getTime()
     };
+    console.log(hook.data);
 
     // Hooks can either return nothing or a promise
     // that resolves with the `hook` object for asynchronous operations

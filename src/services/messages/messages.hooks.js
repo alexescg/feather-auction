@@ -1,17 +1,21 @@
 'use strict';
 
-const { authenticate } = require('feathers-authentication').hooks;
-const { populate } = require('feathers-hooks-common');
+const {
+  authenticate
+} = require('feathers-authentication').hooks;
+const {
+  populate
+} = require('feathers-hooks-common');
 const processMessage = require('../../hooks/process-message');
 
 module.exports = {
   before: {
-    all: [ authenticate('jwt') ],
+    all: [authenticate('jwt')],
     find: [],
     get: [],
-    create: [ processMessage() ],
-    update: [ processMessage() ],
-    patch: [ processMessage() ],
+    create: [processMessage()],
+    update: [processMessage()],
+    patch: [processMessage()],
     remove: []
   },
 
