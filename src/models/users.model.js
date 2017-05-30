@@ -9,6 +9,9 @@ module.exports = function(app) {
       type: String,
       unique: true
     },
+    name: {
+      type: String
+    },
     avatar: {
       type: String
     },

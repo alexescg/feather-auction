@@ -4,7 +4,7 @@ const local = require('feathers-authentication-local');
 const oauth2 = require('feathers-authentication-oauth2');
 const FacebookStrategy = require('passport-facebook');
 
-module.exports = function () {
+module.exports = function() {
   const app = this;
   const config = app.get('authentication');
 
@@ -28,6 +28,14 @@ module.exports = function () {
       ],
       remove: [
         authentication.hooks.authenticate('jwt')
+      ]
+    },
+    after: {
+      create: [
+        hook => {
+          hook.result.user = hook.params.user;
+          delete hook.result.user.password;
+        }
       ]
     }
   });
