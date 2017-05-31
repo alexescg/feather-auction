@@ -22,7 +22,6 @@ module.exports = function() {
       // Add the current time via `getTime`
       createdAt: new Date().getTime()
     };
-    console.log("el buen hook data ><><><><><><><><><");
     console.log(hook.data);
 
     // Hooks can either return nothing or a promise

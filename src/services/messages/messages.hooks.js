@@ -28,7 +28,13 @@ module.exports = {
             nameAs: 'user',
             parentField: 'user',
             childField: '_id'
-          }]
+        },
+        {
+          service: 'users',
+          nameAs: 'to',
+          parentField: 'to',
+          childField: '_id'
+        }]
         }
       })
     ],
